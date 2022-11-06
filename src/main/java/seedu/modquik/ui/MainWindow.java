@@ -191,7 +191,7 @@ public class MainWindow extends UiPart<Stage> {
      * Opens the tab of persons.
      */
     @FXML
-    public void handlePerson() {
+    public void handleStudent() {
         modelListPanelPlaceholder.getChildren().clear();
         modelListPanelPlaceholder.getChildren().add(studentListPanel.getRoot());
         listHeader.setText("Student");
@@ -246,7 +246,7 @@ public class MainWindow extends UiPart<Stage> {
                 handleExit();
                 break;
             case STUDENT:
-                handlePerson();
+                handleStudent();
                 break;
             case TUTORIAL:
                 handleTutorial();

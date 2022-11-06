@@ -1,0 +1,14 @@
+diff a/src/test/java/seedu/modquik/model/student/UniqueStudentListTest.java b/src/test/java/seedu/modquik/model/student/UniqueStudentListTest.java	(rejected hunks)
+@@ -14,9 +14,9 @@
+ 
+ import org.junit.jupiter.api.Test;
+ 
+-import seedu.modquik.model.student.exceptions.DuplicatePersonException;
+-import seedu.modquik.model.student.exceptions.PersonNotFoundException;
+-import seedu.modquik.testutil.PersonBuilder;
++import seedu.modquik.model.student.exceptions.DuplicateStudentException;
++import seedu.modquik.model.student.exceptions.StudentNotFoundException;
++import seedu.modquik.testutil.StudentBuilder;
+ 
+ public class UniqueStudentListTest {
+ 

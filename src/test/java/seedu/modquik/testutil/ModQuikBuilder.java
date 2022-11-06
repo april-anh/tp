@@ -23,8 +23,8 @@ public class ModQuikBuilder {
     /**
      * Adds a new {@code Person} to the {@code ModQuik} that we are building.
      */
-    public ModQuikBuilder withPerson(Student student) {
-        modQuik.addPerson(student);
+    public ModQuikBuilder withStudent(Student student) {
+        modQuik.addStudent(student);
         return this;
     }
 

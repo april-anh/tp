@@ -1,0 +1,10 @@
+diff a/src/test/java/seedu/modquik/logic/LogicManagerTest.java b/src/test/java/seedu/modquik/logic/LogicManagerTest.java	(rejected hunks)
+@@ -38,7 +38,7 @@
+ import seedu.modquik.storage.JsonModQuikStorage;
+ import seedu.modquik.storage.JsonUserPrefsStorage;
+ import seedu.modquik.storage.StorageManager;
+-import seedu.modquik.testutil.PersonBuilder;
++import seedu.modquik.testutil.StudentBuilder;
+ 
+ public class LogicManagerTest {
+     private static final IOException DUMMY_IO_EXCEPTION = new IOException("dummy exception");

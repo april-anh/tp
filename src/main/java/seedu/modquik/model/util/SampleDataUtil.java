@@ -130,7 +130,7 @@ public class SampleDataUtil {
     public static ReadOnlyModQuik getSampleModQuik() {
         ModQuik sampleAb = new ModQuik();
         for (Student sampleStudent : getSamplePersons()) {
-            sampleAb.addPerson(sampleStudent);
+            sampleAb.addStudent(sampleStudent);
         }
         for (Tutorial sampleTutorial: getSampleTutorials()) {
             sampleAb.addTutorial(sampleTutorial);

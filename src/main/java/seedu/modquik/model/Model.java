@@ -18,7 +18,7 @@ import seedu.modquik.model.tutorial.TutorialName;
  */
 public interface Model {
     /** {@code Predicate} that always evaluate to true */
-    Predicate<Student> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
+    Predicate<Student> PREDICATE_SHOW_ALL_STUDENTS = unused -> true;
     Predicate<Reminder> PREDICATE_SHOW_ALL_REMINDERS = unused -> true;
     Predicate<Tutorial> PREDICATE_SHOW_ALL_TUTORIALS = unused -> true;
     Predicate<Consultation> PREDICATE_SHOW_ALL_CONSULTATIONS = unused -> true;
@@ -64,29 +64,29 @@ public interface Model {
     /**
      * Returns true if a person with the same identity as {@code person} exists in ModQuik.
      */
-    boolean hasPerson(Student student);
+    boolean hasStudent(Student student);
 
     /**
      * Deletes the given person.
      * The person must exist in ModQuik.
      */
-    void deletePerson(Student target);
+    void deleteStudent(Student target);
 
     /**
      * Adds the given person.
      * {@code person} must not already exist in ModQuik.
      */
-    void addPerson(Student student);
+    void addStudent(Student student);
 
     /**
      * Replaces the given person {@code target} with {@code editedPerson}.
      * {@code target} must exist in ModQuik.
      * The person identity of {@code editedPerson} must not be the same as another existing person in ModQuik.
      */
-    void setPerson(Student target, Student editedStudent);
+    void setStudent(Student target, Student editedStudent);
 
     /** Returns an unmodifiable view of the filtered person list */
-    ObservableList<Student> getFilteredPersonList();
+    ObservableList<Student> getFilteredStudentList();
 
     /** Returns an unmodifiable view of the student'grade */
     ObservableList<PieChart.Data> getStudentGradeChartData();
@@ -95,7 +95,7 @@ public interface Model {
      * Updates the filter of the filtered person list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
      */
-    void updateFilteredPersonList(Predicate<Student> predicate);
+    void updateFilteredStudentList(Predicate<Student> predicate);
 
     /**
      * Returns true if a reminder with the same identity as {@code reminder} exists in ModQuik.

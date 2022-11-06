@@ -15,7 +15,7 @@ import static seedu.modquik.logic.parser.CliSyntax.PREFIX_TUTORIAL;
 import java.util.Set;
 
 import seedu.modquik.logic.commands.student.AddStudentCommand;
-import seedu.modquik.logic.commands.student.EditStudentCommand.EditPersonDescriptor;
+import seedu.modquik.logic.commands.student.EditStudentCommand.EditStudentDescriptor;
 import seedu.modquik.model.student.Student;
 import seedu.modquik.model.tag.Tag;
 
@@ -53,9 +53,9 @@ public class PersonUtil {
     }
 
     /**
-     * Returns the part of command string for the given {@code EditPersonDescriptor}'s details.
+     * Returns the part of command string for the given {@code EditStudentDescriptor}'s details.
      */
-    public static String getEditPersonDescriptorDetails(EditPersonDescriptor descriptor) {
+    public static String getEditPersonDescriptorDetails(EditStudentDescriptor descriptor) {
         StringBuilder sb = new StringBuilder();
         descriptor.getName().ifPresent(name -> sb.append(PREFIX_NAME).append(name.fullName).append(" "));
         descriptor.getId().ifPresent(id -> sb.append(PREFIX_ID).append(id.id).append(" "));

@@ -50,7 +50,7 @@ public class AddStudentCommand extends Command {
             + PREFIX_TUTORIAL + "W17 ";
 
     public static final String MESSAGE_SUCCESS = "New person added: %1$s";
-    public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in ModQuik";
+    public static final String MESSAGE_DUPLICATE_STUDENT = "This person already exists in ModQuik";
     public static final String MESSAGE_NON_EXISTING_MODULE = "The module does not exist in ModQuik";
     public static final String MESSAGE_NON_EXISTING_TUTORIAL = "The tutorial does not exist in ModQuik";
 
@@ -68,8 +68,8 @@ public class AddStudentCommand extends Command {
     public CommandResult execute(Model model) throws CommandException {
         requireNonNull(model);
 
-        if (model.hasPerson(toAdd)) {
-            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        if (model.hasStudent(toAdd)) {
+            throw new CommandException(MESSAGE_DUPLICATE_STUDENT);
         }
 
         if (!model.hasModuleCode(toAdd.getModuleCode())) {
@@ -80,7 +80,7 @@ public class AddStudentCommand extends Command {
             throw new CommandException(MESSAGE_NON_EXISTING_TUTORIAL);
         }
 
-        model.addPerson(toAdd);
+        model.addStudent(toAdd);
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd), ModelType.STUDENT);
     }
 

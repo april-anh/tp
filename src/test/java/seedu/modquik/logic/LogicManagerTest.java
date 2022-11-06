@@ -90,11 +90,11 @@ public class LogicManagerTest {
         String addCommand = AddStudentCommand.COMMAND_WORD
                 + NAME_DESC_AMY + ID_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY
                 + TELEGRAM_DESC_AMY + MODULE_DESC_AMY + TUTORIAL_DESC_AMY;
-        Student expectedStudent = new PersonBuilder(AMY).withTags().build();
+        Student expectedStudent = new StudentBuilder(AMY).withTags().build();
         ModelManager expectedModel = new ModelManager();
         model.addTutorial(new Tutorial(new TutorialName("F01"), new ModuleCode("CS2103T"), new Venue("Zoom"),
                 WeeklyTimeslot.fromFormattedString("1", "15:00", "17:00")));
-        expectedModel.addPerson(expectedStudent);
+        expectedModel.addStudent(expectedStudent);
         String expectedMessage = LogicManager.FILE_OPS_ERROR_MESSAGE + DUMMY_IO_EXCEPTION;
         assertCommandFailure(addCommand, CommandException.class, expectedMessage, expectedModel);
     }

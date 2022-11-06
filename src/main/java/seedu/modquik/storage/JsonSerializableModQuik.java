@@ -25,10 +25,10 @@ import seedu.modquik.model.tutorial.Tutorial;
 @JsonRootName(value = "addressbook")
 class JsonSerializableModQuik {
 
-    public static final String MESSAGE_DUPLICATE_PERSON = "Persons list contains duplicate person(s).";
+    public static final String MESSAGE_DUPLICATE_STUDENT = "Persons list contains duplicate person(s).";
     public static final String MESSAGE_DUPLICATE_REMINDER = "Reminders list contains duplicate reminder(s).";
 
-    private final List<JsonAdaptedStudent> persons = new ArrayList<>();
+    private final List<JsonAdaptedStudent> students = new ArrayList<>();
     private final List<JsonAdaptedTutorial> tutorials = new ArrayList<>();
     private final List<JsonAdaptedConsultation> consultations = new ArrayList<>();
     private final List<JsonAdaptedReminder> reminders = new ArrayList<>();
@@ -37,11 +37,11 @@ class JsonSerializableModQuik {
      * Constructs a {@code JsonSerializableModQuik} with the given persons.
      */
     @JsonCreator
-    public JsonSerializableModQuik(@JsonProperty("persons") List<JsonAdaptedStudent> persons,
+    public JsonSerializableModQuik(@JsonProperty("persons") List<JsonAdaptedStudent> students,
                                    @JsonProperty("reminders") List<JsonAdaptedReminder> reminders,
                                    @JsonProperty("tutorials") List<JsonAdaptedTutorial> tutorials,
                                    @JsonProperty("consultations") List<JsonAdaptedConsultation> consultations) {
-        this.persons.addAll(persons);
+        this.students.addAll(students);
         this.tutorials.addAll(tutorials);
         this.consultations.addAll(consultations);
         this.reminders.addAll(reminders);
@@ -53,7 +53,7 @@ class JsonSerializableModQuik {
      * @param source future changes to this will not affect the created {@code JsonSerializableModQuik}.
      */
     public JsonSerializableModQuik(ReadOnlyModQuik source) {
-        persons.addAll(source.getPersonList().stream().map(JsonAdaptedStudent::new).collect(Collectors.toList()));
+        students.addAll(source.getPersonList().stream().map(JsonAdaptedStudent::new).collect(Collectors.toList()));
         reminders.addAll(source.getReminderList().stream().map(JsonAdaptedReminder::new).collect(Collectors.toList()));
         tutorials.addAll(source.getTutorialList().stream().map(JsonAdaptedTutorial::new).collect(Collectors.toList()));
         consultations.addAll(source.getConsultationList().stream().map(JsonAdaptedConsultation::new)
@@ -67,12 +67,12 @@ class JsonSerializableModQuik {
      */
     public ModQuik toModelType() throws IllegalValueException {
         ModQuik modQuik = new ModQuik();
-        for (JsonAdaptedStudent jsonAdaptedStudent : persons) {
+        for (JsonAdaptedStudent jsonAdaptedStudent : students) {
             Student student = jsonAdaptedStudent.toModelType();
-            if (modQuik.hasPerson(student)) {
-                throw new IllegalValueException(MESSAGE_DUPLICATE_PERSON);
+            if (modQuik.hasStudent(student)) {
+                throw new IllegalValueException(MESSAGE_DUPLICATE_STUDENT);
             }
-            modQuik.addPerson(student);
+            modQuik.addStudent(student);
         }
 
         for (JsonAdaptedReminder jsonAdaptedReminder : reminders) {
